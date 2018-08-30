@@ -1,0 +1,49 @@
+{
+  "name": "vue-recursive-tree",
+  "version": "0.0.1",
+  "description": "Latamine admin panel",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "webpack --config webpack.config.js",
+    "serv": "YOUR_HOST=127.0.0.1 YOUR_PORT=8080 node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bovtik/latamine-admin.git"
+  },
+  "author": "Bovtik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bovtik/latamine-admin/issues"
+  },
+  "homepage": "https://github.com/Bovtik/latamine-admin#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "css-loader": "^1.0.0",
+    "gulp": "^3.9.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "vue-loader": "^15.2.5",
+    "vue-style-loader": "^4.1.1",
+    "vue-template-compiler": "^2.5.16",
+    "vue-template-loader": "^1.0.0",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.2.4",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  }
+}
