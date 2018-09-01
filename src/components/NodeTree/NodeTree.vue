@@ -1,18 +1,21 @@
 <template>
   <div class="node-tree">
-    <tr class="table-row">
-      <td class="table-row-item">
+    <div class="table-row" :class="{ 'root-row': !(depth-1) }">
+      <div class="table-row-item">
         <span>{{ node.product[0].product_id }}</span>
-      </td>
-      <td class="table-row-item">
+      </div>
+      <div class="table-row-item">
         <span>{{ node.product[0].article }}</span>
-      </td>
-    </tr>
-    <!-- <span class="label" :style="style">{{ node.product[0].article }}</span> -->
+      </div>
+      <div class="table-row-item">
+        <span>{{ node.product[0].department }}</span>
+      </div>
+      <div class="table-row-item table-row-item--title" :style="style">
+        <span>{{ node.product[0].title }}</span>
+      </div>
+    </div>
 
-    <!-- <ul v-if="node.children && node.children.length"> -->
-      <node v-for="child in node.children" :node="child" :depth="depth + 1"></node>
-    <!-- </ul> -->
+    <node v-for="child in node.children" :node="child" :depth="depth + 1"></node>
   </div>
 </template>
 
@@ -25,11 +28,14 @@ export default {
   },
   computed: {
     style: function () {
-      if (this.depth <= 1) {
-        return null;
-      } else {
-        return { paddingLeft: (this.depth - 1) * 10 + 'px' }
+      let style = {};
+      if (this.depth == 1) {
+        style.backgroundColor = '#ffecd7';
       }
+      if (this.depth > 2) {
+        style.paddingLeft = 20 + (this.depth - 2) * 15 + 'px';
+      }
+      return style;
     }
   }
 };
@@ -37,17 +43,23 @@ export default {
 
 <style lang="scss">
   .table-row {
-    display: flex;
     &-item {
+      display: table-cell;
       padding: 10px 0 10px 20px;
       font-size: 12px;
       color: #444;
       &:nth-of-type(1) {
-        // width: 100px;
+        width: 101px;
       }
       &:nth-of-type(2) {
-        // width: 200px;
-      }      
+        width: 112px;
+      }
+      &:nth-of-type(3) {
+        width: 104px;
+      }
+      &:nth-of-type(4) {
+        width: 275px;
+      }
     }
   }
 </style>
